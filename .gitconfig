@@ -1,0 +1,32 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+[push]
+	default = current
+[alias]
+	ap = add -p
+	st = status
+	s = status
+	rc = rebase --continue
+	ri = rebase -i
+	co = checkout
+	lg = log -M --decorate --graph
+	pur = pull --rebase
+	frebase = "!f() { git log --pretty=oneline | fzf -n 2.. | awk '{print $1\"^\"}' | xargs -o git rebase -i; }; f"
+	commend = commit --amend --no-edit
+	please = push --force-with-lease
+	shorty = status --short --branch
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	autofixup = "!f() { COMMIT=$(git log --pretty=oneline | fzf | awk '{print $1}'); git commit --fixup $COMMIT; GIT_SEQUENCE_EDITOR=: git rebase --autosquash -i $COMMIT^; }; f"
+[user]
+	name = antoine jubin
+	email = antoine.jubin@depinfonancy.net
+	signingkey = 7AA582FBB73ECD28
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = false
+	template = /Users/antoinejubin/.stCommitMsg
+[core]
+	excludesfile = /Users/antoinejubin/.gitignore_global
+
