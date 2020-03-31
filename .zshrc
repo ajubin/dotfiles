@@ -4,24 +4,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/antoinejubin/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "avit" "agnoster" "bira" "ys" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -65,12 +55,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
   git
   react-native
-  jump
   z
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
+
+## History
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 
 # User configuration
 
@@ -101,14 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-alias loadnvm=". $NVM_DIR/nvm.sh"
-
-# ## The following lines are making the loading really long of a term session
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
 # Use vim for command line editing 
 #bindkey -v
 
@@ -138,10 +124,6 @@ function vi_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
 }
 
-# define right prompt, regardless of whether the theme defined it
-RPS1='$(vi_mode_prompt_info)'
-RPS2=$RPS1
-
 
 # Golang path
 export GOPATH=$HOME/go-workspace
@@ -161,7 +143,7 @@ eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
 alias grbim='git rebase -i origin/master'
-alias zconf='vim ~/.zshrc'
+alias zconf='code ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias vconf='vim ~/.vimrc'
 alias emul='/Users/antoinejubin/Library/Android/sdk/emulator/emulator @Nexus_5_API_28 </dev/null &>/dev/null &'
@@ -173,6 +155,7 @@ alias gitDelete='git branch --no-color | command grep -vE "^(\*|\s*(master|temp|
 numberOfLines(){
   find $1 -type f -exec wc -l {} + | sort -rn
 }
+alias pr='open "https://gitlab.com/ekwateur-applications-projects/ruban-app/-/merge_requests"'
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH=$PATH:$HOME/scripts
@@ -203,4 +186,13 @@ export PATH="$PATH:/Users/antoinejubin/Library/Python/3.7/bin"
 
 
 source ~/scripts/useful.sh
-loadnvm
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/antoinejubin/Applications/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/sbin:$PATH"
