@@ -9,7 +9,8 @@
 
 - link:
     # Zsh
-    ~/.zshrc: .zshrc
+    ~/.zshrc: zsh/zshrc.zsh
+    ~/.fzf.zsh: zsh/fzf.zsh
     # Git
     ~/.gitconfig: .gitconfig
     # Vim
