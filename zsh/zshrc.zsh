@@ -1,50 +1,12 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/antoinejubin/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  react-native
-  z
-  zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
+# Install oh-my-zsh
+source ~/dotfiles/zsh/oh-my-zsh.zsh
 
 ## History
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
-
-# User configuration
-
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-# Updates editor information when the keymap changes.
-function zle-keymap-select() {
-  zle reset-prompt
-  zle -R
-}
-
-zle -N zle-keymap-select
-
-function vi_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
-}
+# Install fzf
+source ~/dotfiles/zsh/fzf.zsh
 
 
 # Golang path
@@ -53,8 +15,6 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# Install fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/antoinejubin/.sdkman"
