@@ -1,0 +1,19 @@
+# Settings
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true # Swap the original file
+
+- clean: ["~"]
+
+- link:
+    # Zsh
+    ~/.zshrc: .zshrc
+    # Git
+    ~/.gitconfig: .gitconfig
+    # Vim
+    ~/.vimrc: .vimrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
