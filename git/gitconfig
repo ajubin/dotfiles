@@ -20,7 +20,6 @@
 	autofixup = "!f() { COMMIT=$(git log --pretty=oneline | fzf | awk '{print $1}'); git commit --fixup $COMMIT; GIT_SEQUENCE_EDITOR=: git rebase --autosquash --autostash -i $COMMIT^; }; f"
 	antoinejubin = "!f() { FIRST_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose starting commit : '| awk '{print $1}'); SECOND_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose ending commit : ' | awk '{print $1}'); git show --reverse -s --format='%h%x09%ad%x09%s' $FIRST_COMMIT_HASH..$SECOND_COMMIT_HASH; }; f"
 	archive = clean -f -d -X
-	arch = clean -f -d -X
 	history = log --pretty=format:\"%Cblue%h%Creset - %Cgreen%an%Creset - %Cred%ci%Creset - %s\" --merges
 [user]
 	name = antoine jubin

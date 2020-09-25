@@ -12,6 +12,7 @@
     ~/.zshrc: zsh/zshrc.zsh
     # Git
     ~/.gitconfig: git/gitconfig
+    ~/.gitignore_gloabl: git/gitignore_gloabl
     # Vim
     ~/.vimrc: vim/vimrc
 

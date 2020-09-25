@@ -78,3 +78,6 @@ if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/path.zsh.inc' ]; then
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/sbin:$PATH"
+
+# Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
+export ASDF_DIR=$(brew --prefix asdf)
