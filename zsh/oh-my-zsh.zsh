@@ -16,6 +16,7 @@ plugins=(
   react-native
   z
   zsh-autosuggestions
+  command-time
 )
 
 source $ZSH/oh-my-zsh.sh
