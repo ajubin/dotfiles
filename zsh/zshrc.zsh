@@ -1,3 +1,8 @@
+# HOW-TO: Faster ZSH and profiling 
+# https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load.html#how-to-test-your-shell-load-time
+# https://htr3n.github.io/2018/07/faster-zsh/
+
+export ZSH_DISABLE_COMPFIX=true # disable handle_completion_insecurities in oh-my-zsh
 # Install oh-my-zsh
 source ~/dotfiles/zsh/oh-my-zsh.zsh
 
@@ -34,9 +39,20 @@ alias albert='emulator @Albert </dev/null &>/dev/null &'
 alias ip='ipconfig getifaddr en0'
 alias syncAndroid='adb shell date -s `date +%G%m%d.%H%M%S`'
 alias gitDelete='git branch --no-color | command grep -vE "^(\*|\s*(master|temp|wip)\s*$)" | command xargs -n 1 git branch -D'
+alias gitResetMaster='git checkout -B master origin/master'
+alias resetSound='sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod'
+gcodate() {
+  git checkout `git rev-list -n 1 --before="$1" master`
+}
+
+
 numberOfLines(){
   find $1 -type f -exec wc -l {} + | sort -rn
 }
+todo(){
+  git diff master..`git branch --show-current` | grep "^+.*TODO"
+}
+
 alias pr='open "https://gitlab.com/ekwateur-applications-projects/ruban-app/-/merge_requests"'
 export PATH=$PATH:$ANDROID_HOME/emulator
 
@@ -81,3 +97,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
 export ASDF_DIR=$(brew --prefix asdf)
+
+# Add date on right side of prompt
+export RPROMPT="[%D{%y/%m/%f}|%@]"
