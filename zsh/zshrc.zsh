@@ -104,3 +104,4 @@ export RPROMPT="[%D{%y/%m/%f}|%@]"
 # To use php installed via homebrew before default php on macos
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="$HOME/.symfony/bin:$PATH"
