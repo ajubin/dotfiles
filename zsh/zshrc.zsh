@@ -30,8 +30,8 @@ eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
 alias grbim='git rebase -i origin/master'
-alias zconf='code ~/.zshrc'
-alias reload='source ~/.zshrc'
+alias zconf='code ~/dotfiles/zsh/zsh.zshrc'
+alias reload='source ~/.zshrc' # Relaunch dotbot with ./install in dotfiles dir
 alias vconf='vim ~/.vimrc'
 alias emul='/Users/antoinejubin/Library/Android/sdk/emulator/emulator @Nexus_5_API_28 </dev/null &>/dev/null &'
 alias rr='adb shell input keyevent 82'
@@ -100,3 +100,7 @@ export ASDF_DIR=$(brew --prefix asdf)
 
 # Add date on right side of prompt
 export RPROMPT="[%D{%y/%m/%f}|%@]"
+
+# To use php installed via homebrew before default php on macos
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
