@@ -30,7 +30,7 @@ eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
 alias grbim='git rebase -i origin/master'
-alias zconf='code ~/dotfiles/zsh/zsh.zshrc'
+alias zconf='code ~/dotfiles/zsh/zshrc.zsh'
 alias reload='source ~/.zshrc' # Relaunch dotbot with ./install in dotfiles dir
 alias vconf='vim ~/.vimrc'
 alias emul='/Users/antoinejubin/Library/Android/sdk/emulator/emulator @Nexus_5_API_28 </dev/null &>/dev/null &'
@@ -78,10 +78,6 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:/Users/antoinejubin/Library/Python/3.7/bin"
 
-# begin appcenter completion
-. <(appcenter --completion)
-# end appcenter completion
-
 
 source ~/scripts/useful.sh
 
@@ -96,10 +92,10 @@ if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc' ]
 export PATH="/usr/local/sbin:$PATH"
 
 # Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
-export ASDF_DIR=$(brew --prefix asdf)
+export ASDF_DIR="/usr/local/opt/asdf"
 
 # Add date on right side of prompt
-export RPROMPT="[%D{%y/%m/%f}|%@]"
+# export RPROMPT="[%D{%y/%m/%f}|%@]"
 
 # To use php installed via homebrew before default php on macos
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
