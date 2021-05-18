@@ -101,3 +101,7 @@ export ASDF_DIR="/usr/local/opt/asdf"
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH="$HOME/.symfony/bin:$PATH"
+
+## Issue with npm, was linked to -  /usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js 
+## But we wan't to have npm from /Users/antoinejubin/.asdf/shims/npm
+export PATH="$HOME/.asdf/shims:$PATH"
