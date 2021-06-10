@@ -53,7 +53,24 @@ todo(){
   git diff master..`git branch --show-current` | grep "^+.*TODO"
 }
 
-alias pr='open "https://gitlab.com/ekwateur-applications-projects/ruban-app/-/merge_requests"'
+alias pr='open "https://github.com/bamlab/healico-server/pulls"'
+
+# fg - see changes by commit
+fg() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --reverse --tiebreak=index \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+                FZF-EOF
+              "
+}
+# fr - Select commit to rebase onto
+fr() {
+  git log --graph --color=always --format="%h%C(#ff69b4)%d%C(reset) %s" "$@" | fzf --ansi --reverse --tiebreak=index | grep -o '[a-f0-9]\{7\}' | awk '{print $1"^"}' | xargs -o git rebase -i
+}
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH=$PATH:$HOME/scripts
