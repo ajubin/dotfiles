@@ -1,64 +1,84 @@
-tap "aws/tap"
+
+# For infra
+# tap "aws/tap"
+# tap "heroku/brew"
+# brew "aws/tap/aws-sam-cli"
+# brew "heroku/brew/heroku"
+
 tap "buo/cask-upgrade"
-tap "heroku/brew"
-tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "schniz/tap"
+
+
 brew "ack"
 brew "autoconf"
 brew "automake"
 brew "coreutils"
 brew "libtool"
 brew "openssl@1.1"
+
+#  Languages
 brew "asdf"
-brew "python"
+# brew "python"
+# brew "pyenv"
+
+# Cli utils
 brew "fd"
 brew "ffmpeg"
-brew "fzf"
-brew "gifsicle"
-brew "gitleaks"
 brew "graphviz"
 brew "htop"
-brew "hub"
 brew "imagemagick"
 brew "jq"
-brew "ncdu"
-brew "pidcat"
-brew "pkg-config"
-brew "postgresql", restart_service: true
-brew "pyenv"
-brew "scrcpy"
+brew "fzf"
 brew "transcrypt"
 brew "tree"
 brew "watchman"
 brew "zsh"
-brew "aws/tap/aws-sam-cli"
-brew "heroku/brew/heroku"
-brew "schniz/tap/fnm"
-cask "amethyst"
-cask "android-platform-tools"
+# brew "gifsicle"
+# brew "gitleaks"
+# brew "hub"
+
+# Unknown
+brew "pkg-config"
+brew "ncdu"
+
+# Backend
+brew "postgresql", restart_service: true
+brew "redis", restart_service: true
+
+
+# Android
+# brew "scrcpy"
+# brew "pidcat"
+# cask "android-platform-tools"
+# cask "java"
+
+
+#  Apps
+cask "clipy"
 cask "bettertouchtool"
 cask "dbeaver-community"
+cask "postico"
 cask "fastlane"
 cask "font-source-code-pro"
-cask "franz"
 cask "google-chrome"
-cask "insomnia"
 cask "iterm2"
-cask "java"
-cask "macpass"
-cask "mobster"
+# To open kdbx files
+cask "macpass" 
+# cask "mobster" for pair programming
 cask "slack"
-cask "sourcetree"
-cask "spectacle"
+# cask "spectacle"
+cask "moom" # An alternative to spectacle
 cask "spotify"
-cask "vagrant"
-cask "vagrant-manager"
-cask "virtualbox"
+# cask "vagrant"
+# cask "vagrant-manager"
+# cask "virtualbox"
 cask "visual-studio-code"
+cask "docker"
 cask "vlc"
-cask "whatsapp"
-cask "zeplin"
+cask "tunnelblick"
+cask "cleanmymac"
+cask "notion"

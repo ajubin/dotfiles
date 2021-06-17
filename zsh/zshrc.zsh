@@ -26,7 +26,7 @@ export SDKMAN_DIR="/Users/antoinejubin/.sdkman"
 [[ -s "/Users/antoinejubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/antoinejubin/.sdkman/bin/sdkman-init.sh"
 export PATH=$PATH:/Users/antoinejubin/Library/Android/sdk/platform-tools
 export PATH=$PATH:/Users/antoinejubin/Library/Android/sdk/tools/bin
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
 alias grbim='git rebase -i origin/master'
@@ -96,7 +96,7 @@ export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:/Users/antoinejubin/Library/Python/3.7/bin"
 
 
-source ~/scripts/useful.sh
+# source ~/scripts/useful.sh
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
