@@ -29,6 +29,9 @@ export PATH=$PATH:/Users/antoinejubin/Library/Android/sdk/tools/bin
 # eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
+c(){
+  code ./
+}
 alias grbim='git rebase -i origin/master'
 alias zconf='code ~/dotfiles/zsh/zshrc.zsh'
 alias reload='source ~/.zshrc' # Relaunch dotbot with ./install in dotfiles dir

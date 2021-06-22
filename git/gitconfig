@@ -31,7 +31,7 @@
 	gpgsign = false
 	template = /Users/antoinejubin/.stCommitMsg
 [core]
-	excludesfile = /Users/antoinejubin/.gitignore_global
+	excludesfile = /Users/ajubin/.gitignore_global
 
 [help]
 	autocorrect = 1

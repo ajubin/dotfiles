@@ -22,6 +22,7 @@ brew "openssl@1.1"
 
 #  Languages
 brew "asdf"
+brew "gpg"
 # brew "python"
 # brew "pyenv"
 
@@ -40,6 +41,8 @@ brew "zsh"
 # brew "gifsicle"
 # brew "gitleaks"
 # brew "hub"
+
+brew "helm"
 
 # Unknown
 brew "pkg-config"
@@ -79,6 +82,7 @@ cask "spotify"
 cask "visual-studio-code"
 cask "docker"
 cask "vlc"
-cask "tunnelblick"
+# cask "tunnelblick"
+cask "pritunl"
 cask "cleanmymac"
 cask "notion"

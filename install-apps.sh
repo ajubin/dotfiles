@@ -36,9 +36,23 @@ fi
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
+# TODO: install font with ligature for spaceship
+
 # install plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/pierpo/fzf-yarn ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-yarn
 
 
 # use same preference for iterm2
+# TODO: some stuff imported, but profiles are missing
+
+
+asdf plugin add nodejs 
+asdf install nodejs latest:14
+# TODO: maybe add .tools_version in dotfiles
+
+asdf global nodejs `asdf list nodejs | grep 14`
+npm install -g yarn
+
+# when running psql, it want to connects to username db by default and it's not created,
+createdb `whoami`
