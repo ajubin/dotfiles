@@ -56,3 +56,6 @@ npm install -g yarn
 
 # when running psql, it want to connects to username db by default and it's not created,
 createdb `whoami`
+
+#  Installing firebase
+curl -sL https://firebase.tools | bash
