@@ -1,0 +1,7 @@
+#!/bin/sh
+# taken from https://github.com/samyk/samytools/blob/master/aire
+# reset wifi (well, en0 is wifi on 2015 mbp -- older may require en1)
+
+networksetup -setairportpower en0 off
+networksetup -setairportpower en0 on
+
