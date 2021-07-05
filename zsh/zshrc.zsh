@@ -97,9 +97,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:/Users/ajubin/Library/Python/3.7/bin"
+export PATH="$PATH:$HOME/dotfiles/scripts"
+source "$HOME/dotfiles/scripts/useful.sh"
 
 
-# source ~/scripts/useful.sh
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
