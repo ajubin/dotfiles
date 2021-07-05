@@ -11,6 +11,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "schniz/tap"
+tap "exoscale/tap"
 
 
 brew "ack"
@@ -86,3 +87,6 @@ cask "vlc"
 cask "pritunl"
 cask "cleanmymac"
 cask "notion"
+
+brew "exoscale-cli"
+

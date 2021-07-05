@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>1D120233-E9FA-4352-AD1A-7FEB0F064DFB</string>
 	<key>HapticFeedbackForEsc</key>
@@ -1307,5 +1309,7 @@
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 </dict>
 </plist>
