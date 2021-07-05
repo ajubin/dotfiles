@@ -12,7 +12,7 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-# TODO: Some variables are based on computer user name (antoinejubin), find a better way to manage this
+# TODO: Some variables are based on computer user name (ajubin), find a better way to manage this
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
 

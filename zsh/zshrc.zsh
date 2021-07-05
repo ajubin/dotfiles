@@ -22,10 +22,10 @@ export PATH=$PATH:$GOROOT/bin
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/antoinejubin/.sdkman"
-[[ -s "/Users/antoinejubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/antoinejubin/.sdkman/bin/sdkman-init.sh"
-export PATH=$PATH:/Users/antoinejubin/Library/Android/sdk/platform-tools
-export PATH=$PATH:/Users/antoinejubin/Library/Android/sdk/tools/bin
+export SDKMAN_DIR="/Users/ajubin/.sdkman"
+[[ -s "/Users/ajubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajubin/.sdkman/bin/sdkman-init.sh"
+export PATH=$PATH:/Users/ajubin/Library/Android/sdk/platform-tools
+export PATH=$PATH:/Users/ajubin/Library/Android/sdk/tools/bin
 # eval "$(pyenv init -)"
 
 export ANDROID_HOME=~/Library/Android/sdk
@@ -36,7 +36,7 @@ alias grbim='git rebase -i origin/master'
 alias zconf='code ~/dotfiles/zsh/zshrc.zsh'
 alias reload='source ~/.zshrc' # Relaunch dotbot with ./install in dotfiles dir
 alias vconf='vim ~/.vimrc'
-alias emul='/Users/antoinejubin/Library/Android/sdk/emulator/emulator @Nexus_5_API_28 </dev/null &>/dev/null &'
+alias emul='/Users/ajubin/Library/Android/sdk/emulator/emulator @Nexus_5_API_28 </dev/null &>/dev/null &'
 alias rr='adb shell input keyevent 82'
 alias albert='emulator @Albert </dev/null &>/dev/null &'
 alias ip='ipconfig getifaddr en0'
@@ -80,23 +80,23 @@ export PATH=$PATH:$HOME/scripts
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
+[[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+[[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/antoinejubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh
+[[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
-export PATH="$PATH:/Users/antoinejubin/Library/Python/3.7/bin"
+export PATH="$PATH:/Users/ajubin/Library/Python/3.7/bin"
 
 
 # source ~/scripts/useful.sh
@@ -105,10 +105,10 @@ export PATH="$PATH:/Users/antoinejubin/Library/Python/3.7/bin"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/antoinejubin/Applications/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ajubin/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/Applications/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/antoinejubin/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/ajubin/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ajubin/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/sbin:$PATH"
 
 # Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
@@ -123,5 +123,5 @@ export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH="$HOME/.symfony/bin:$PATH"
 
 ## Issue with npm, was linked to -  /usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js 
-## But we wan't to have npm from /Users/antoinejubin/.asdf/shims/npm
+## But we wan't to have npm from /Users/ajubin/.asdf/shims/npm
 export PATH="$HOME/.asdf/shims:$PATH"
