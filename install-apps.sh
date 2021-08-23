@@ -27,6 +27,9 @@ fi
 # unset ZSH # maybe wrongly setup
 # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# disable space rearrangement
+defaults write com.apple.dock mru-spaces -bool FALSE
+
 # make zsh the default
 # sudo sh -c "echo $(which zsh) >> /etc/shells"
 # chsh -s $(which zsh)
