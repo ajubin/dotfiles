@@ -88,18 +88,13 @@ biggestFiles() {
 
 cleanupGit() {
   # https://devconnected.com/how-to-clean-up-git-branches/#Clean_Up_Local_Git_Branches
-  ​
   git fetch --quiet --prune
-  ​
   git checkout --quiet master
-  ​
   # Make sure git status and others stay fast
   git prune
   git gc
-  ​
   # Delete fully merged branches
   git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
-  ​
   # Delete squash-and-merged branches
   # https://github.com/not-an-aardvark/git-delete-squashed
   git for-each-ref refs/heads/ "--format=%(refname:short)" |
@@ -108,10 +103,8 @@ cleanupGit() {
     [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] &&
     git branch -D $branch
   done
-  ​
   # Delete branches that were deleted on origin
   git branch -vv | grep 'origin/.*: disparue]' | awk '{print $1}' | xargs git branch -D
-  ​
   echo "🗑  Deleted outdated branches. To recover one of the deleted branches do this:
         git reflog | grep <commit-hash>
         git checkout -b <new-branch-name> HEAD@{X} # with X whatever the reflog output indicates
