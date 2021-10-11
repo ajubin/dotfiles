@@ -18,8 +18,9 @@
 	shorty = status --short --branch
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	autofixup = "!f() { COMMIT=$(git log --oneline | fzf | awk '{print $1}'); git commit --fixup $COMMIT; GIT_SEQUENCE_EDITOR=: git rebase --autosquash --autostash -i $COMMIT^; }; f"
-	antoinejubin = "!f() { FIRST_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose starting commit : '| awk '{print $1}'); SECOND_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose ending commit : ' | awk '{print $1}'); git show --reverse -s --format='%h%x09%ad%x09%s' $FIRST_COMMIT_HASH..$SECOND_COMMIT_HASH; }; f"
+	ajubin = "!f() { FIRST_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose starting commit : '| awk '{print $1}'); SECOND_COMMIT_HASH=$(git log --pretty=oneline | fzf --prompt='Choose ending commit : ' | awk '{print $1}'); git show --reverse -s --format='%h%x09%ad%x09%s' $FIRST_COMMIT_HASH..$SECOND_COMMIT_HASH; }; f"
 	archive = clean -f -d -X
+	cleanup=cleanupGit
 	history = log --pretty=format:\"%Cblue%h%Creset - %Cgreen%an%Creset - %Cred%ci%Creset - %s\" --merges
 [user]
 	name = antoine jubin
@@ -29,9 +30,11 @@
 	program = gpg2
 [commit]
 	gpgsign = false
-	template = /Users/antoinejubin/.stCommitMsg
+	template = /Users/ajubin/.stCommitMsg
 [core]
-	excludesfile = /Users/antoinejubin/.gitignore_global
+	excludesfile = /Users/ajubin/.gitignore_global
 
 [help]
 	autocorrect = 1
+[pull]
+	rebase = false
