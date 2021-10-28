@@ -49,6 +49,9 @@ brew "helm"
 brew "pkg-config"
 brew "ncdu"
 
+
+brew "ripgrep" # alternative to grep, usage to find in files recursively : rg 'pattern' 
+
 # Backend
 brew "postgresql", restart_service: true
 brew "redis", restart_service: true
