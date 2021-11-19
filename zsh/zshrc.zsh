@@ -126,3 +126,9 @@ if [ -f '/Users/ajubin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ajubin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/completion.zsh.inc'; fi
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="/usr/local/opt/node@16/bin:$PATH"
+
+# added by travis gem
+[ ! -s /Users/ajubin/.travis/travis.sh ] || source /Users/ajubin/.travis/travis.sh
