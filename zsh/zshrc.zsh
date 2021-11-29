@@ -22,13 +22,20 @@ export PATH=$PATH:$GOROOT/bin
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/ajubin/.sdkman"
-[[ -s "/Users/ajubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajubin/.sdkman/bin/sdkman-init.sh"
-export PATH=$PATH:/Users/ajubin/Library/Android/sdk/platform-tools
-export PATH=$PATH:/Users/ajubin/Library/Android/sdk/tools/bin
-# eval "$(pyenv init -)"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export ANDROID_HOME=~/Library/Android/sdk
+
+# export SDKMAN_DIR="/Users/ajubin/.sdkman"
+# [[ -s "/Users/ajubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajubin/.sdkman/bin/sdkman-init.sh"
+# export PATH=$PATH:/Users/ajubin/Library/Android/sdk/platform-tools
+# export PATH=$PATH:/Users/ajubin/Library/Android/sdk/tools/bin
+# # eval "$(pyenv init -)"
+
+# export ANDROID_HOME=~/Library/Android/sdk
 c(){
   code ./
 }
@@ -132,3 +139,4 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 # added by travis gem
 [ ! -s /Users/ajubin/.travis/travis.sh ] || source /Users/ajubin/.travis/travis.sh
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

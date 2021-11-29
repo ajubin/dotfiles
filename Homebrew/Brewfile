@@ -78,7 +78,8 @@ cask "macpass"
 # cask "mobster" for pair programming
 cask "slack"
 # cask "spectacle"
-cask "moom" # An alternative to spectacle
+# cask "moom" # An alternative to spectacle but paying
+cask "rectangle"
 cask "spotify"
 # cask "vagrant"
 # cask "vagrant-manager"
