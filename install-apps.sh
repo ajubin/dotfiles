@@ -13,26 +13,25 @@ if ! command -v brew &> /dev/null
 then
     echo "brew could not be found, installing"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
-    exit
 fi
 
-# brew tap Homebrew/bundle
-# brew bundle --file=./Homebrew/Brewfile --force || true
+brew tap Homebrew/bundle
+brew bundle --file=./Homebrew/Brewfile --force || true
 # TODO : link symlink brewfile / install only subsets
 
 # Show hidden files
-# defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app
+defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app
 # Install ohmyzsh
 # TODO: check if already installed
 # unset ZSH # maybe wrongly setup
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # disable space rearrangement
 defaults write com.apple.dock mru-spaces -bool FALSE
 
 # make zsh the default
-# sudo sh -c "echo $(which zsh) >> /etc/shells"
-# chsh -s $(which zsh)
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)
 
 #  install  prompt
 
@@ -58,7 +57,7 @@ asdf global nodejs `asdf list nodejs | grep 14`
 npm install -g yarn
 
 # when running psql, it want to connects to username db by default and it's not created,
-createdb `whoami`
+# createdb `whoami`
 
 #  Installing firebase
-curl -sL https://firebase.tools | bash
+# curl -sL https://firebase.tools | bash

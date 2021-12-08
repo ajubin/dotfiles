@@ -3,6 +3,9 @@
 # https://htr3n.github.io/2018/07/faster-zsh/
 
 export ZSH_DISABLE_COMPFIX=true # disable handle_completion_insecurities in oh-my-zsh
+
+# Add brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install oh-my-zsh
 source ~/dotfiles/zsh/oh-my-zsh.zsh
 
@@ -13,29 +16,6 @@ setopt hist_ignore_space
 # Install fzf
 source ~/dotfiles/zsh/fzf.zsh
 
-
-# Golang path
-export GOPATH=$HOME/go-workspace
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-
-# export SDKMAN_DIR="/Users/ajubin/.sdkman"
-# [[ -s "/Users/ajubin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajubin/.sdkman/bin/sdkman-init.sh"
-# export PATH=$PATH:/Users/ajubin/Library/Android/sdk/platform-tools
-# export PATH=$PATH:/Users/ajubin/Library/Android/sdk/tools/bin
-# # eval "$(pyenv init -)"
-
-# export ANDROID_HOME=~/Library/Android/sdk
 c(){
   code ./
 }
@@ -81,6 +61,8 @@ fg() {
 fr() {
   git log --graph --color=always --format="%h%C(#ff69b4)%d%C(reset) %s" "$@" | fzf --ansi --reverse --tiebreak=index | grep -o '[a-f0-9]\{7\}' | awk '{print $1"^"}' | xargs -o git rebase -i
 }
+
+
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH=$PATH:$HOME/scripts
@@ -99,6 +81,7 @@ export PATH=$PATH:$HOME/scripts
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh
 
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.fastlane/bin:$PATH"
@@ -114,29 +97,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
-export ASDF_DIR="/usr/local/opt/asdf"
+export ASDF_DIR="/opt/homebrew/opt/asdf"
 
-# Add date on right side of prompt
-# export RPROMPT="[%D{%y/%m/%f}|%@]"
-
-# To use php installed via homebrew before default php on macos
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
-export PATH="$HOME/.symfony/bin:$PATH"
 
 ## Issue with npm, was linked to -  /usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js 
 ## But we wan't to have npm from /Users/ajubin/.asdf/shims/npm
 export PATH="$HOME/.asdf/shims:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ajubin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ajubin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/completion.zsh.inc'; fi
-
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PATH="/usr/local/opt/node@16/bin:$PATH"
 
-# added by travis gem
-[ ! -s /Users/ajubin/.travis/travis.sh ] || source /Users/ajubin/.travis/travis.sh
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
