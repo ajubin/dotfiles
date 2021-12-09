@@ -96,13 +96,9 @@ source "$HOME/dotfiles/scripts/useful.sh"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-# Fix asdf issue install with homebrew - https://github.com/asdf-vm/asdf/issues/428
-export ASDF_DIR="/opt/homebrew/opt/asdf"
+# Install fnm (node manager)
+eval "$(fnm env)"
 
-
-## Issue with npm, was linked to -  /usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js 
-## But we wan't to have npm from /Users/ajubin/.asdf/shims/npm
-export PATH="$HOME/.asdf/shims:$PATH"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 

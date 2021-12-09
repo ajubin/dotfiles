@@ -22,7 +22,7 @@ brew "libtool"
 brew "openssl@1.1"
 
 #  Languages
-brew "asdf"
+brew "fnm"
 brew "gpg"
 # brew "python"
 # brew "pyenv"
