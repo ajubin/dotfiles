@@ -1,4 +1,4 @@
-# HOW-TO: Faster ZSH and profiling 
+# HOW-TO: Faster ZSH and profiling
 # https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load.html#how-to-test-your-shell-load-time
 # https://htr3n.github.io/2018/07/faster-zsh/
 
@@ -16,7 +16,7 @@ setopt hist_ignore_space
 # Install fzf
 source ~/dotfiles/zsh/fzf.zsh
 
-c(){
+c() {
   code ./
 }
 alias grbim='git rebase -i origin/master'
@@ -32,15 +32,14 @@ alias gitDelete='git branch --no-color | command grep -vE "^(\*|\s*(master|temp|
 alias gitResetMaster='git checkout -B master origin/master'
 alias resetSound='sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod'
 gcodate() {
-  git checkout `git rev-list -n 1 --before="$1" master`
+  git checkout $(git rev-list -n 1 --before="$1" master)
 }
 
-
-numberOfLines(){
+numberOfLines() {
   find $1 -type f -exec wc -l {} + | sort -rn
 }
-todo(){
-  git diff master..`git branch --show-current` | grep "^+.*TODO"
+todo() {
+  git diff master..$(git branch --show-current) | grep "^+.*TODO"
 }
 
 alias pr='open "https://github.com/bamlab/healico-server/pulls"'
@@ -48,8 +47,8 @@ alias pr='open "https://github.com/bamlab/healico-server/pulls"'
 # fg - see changes by commit
 fg() {
   git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --reverse --tiebreak=index \
+    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --reverse --tiebreak=index \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
@@ -61,7 +60,6 @@ fg() {
 fr() {
   git log --graph --color=always --format="%h%C(#ff69b4)%d%C(reset) %s" "$@" | fzf --ansi --reverse --tiebreak=index | grep -o '[a-f0-9]\{7\}' | awk '{print $1"^"}' | xargs -o git rebase -i
 }
-
 
 export PATH=$PATH:$ANDROID_HOME/emulator
 
@@ -81,7 +79,6 @@ export PATH=$PATH:$HOME/scripts
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ajubin/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh
 
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.fastlane/bin:$PATH"
@@ -90,16 +87,14 @@ export PATH="$PATH:/Users/ajubin/Library/Python/3.7/bin"
 export PATH="$PATH:$HOME/dotfiles/scripts"
 source "$HOME/dotfiles/scripts/useful.sh"
 
-
-
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # Install fnm (node manager)
 eval "$(fnm env)"
 
-
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-
+# Java environments https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
