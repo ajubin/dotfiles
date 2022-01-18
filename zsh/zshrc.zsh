@@ -98,3 +98,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Java environments https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ajubin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ajubin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/completion.zsh.inc'; fi
