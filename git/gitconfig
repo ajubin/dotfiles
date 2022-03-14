@@ -3,6 +3,7 @@
 # Please adapt and uncomment the following lines:
 [push]
 	default = current
+	followTags = true
 [alias]
 	ap = add -p
 	st = status
@@ -22,15 +23,13 @@
 	archive = clean -f -d -X
 	cleanup="!f() { cleanupGit; }; f"
 	history = log --pretty=format:\"%Cblue%h%Creset - %Cgreen%an%Creset - %Cred%ci%Creset - %s\" --merges
+	# http://www.codeblocq.com/2016/01/Untrack-files-already-added-to-git-repository-based-on-gitignore/
+	re-ignore = !git rm -r --cached . && git add . && git commit -m "reset .gitignore"
 [user]
 	name = antoine jubin
-	email = antoine.jubin@depinfonancy.net
-	signingkey = 7AA582FBB73ECD28
-[gpg]
-	program = gpg2
-[commit]
-	gpgsign = false
-	template = /Users/ajubin/.stCommitMsg
+	email = antoine.jubin@gmail.com
+
+
 [core]
 	excludesfile = /Users/ajubin/.gitignore_global
 

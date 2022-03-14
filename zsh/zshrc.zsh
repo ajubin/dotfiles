@@ -2,6 +2,9 @@
 # https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load.html#how-to-test-your-shell-load-time
 # https://htr3n.github.io/2018/07/faster-zsh/
 
+# make cd case-INsensitive
+set completion-ignore-case
+
 export ZSH_DISABLE_COMPFIX=true # disable handle_completion_insecurities in oh-my-zsh
 
 # Add brew
@@ -98,6 +101,16 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Java environments https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+export HAWAYA_MAVEN_REPOSITORY_PASSWORD=HawayaSecret12345
+
+# npm/make/brew autocompletions are super slow. Disable them so that auto-fu's
+# completion doesn't trigger for these
+noopt() {}
+compdef noopt npm make brew
+
+# enable completion for these commands.
+# See https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org#completing-generic-gnu-commands
+# compdef _gnu_generic yarn
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ajubin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/path.zsh.inc'; fi
