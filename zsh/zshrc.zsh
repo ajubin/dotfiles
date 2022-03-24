@@ -67,6 +67,7 @@ fr() {
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH=$PATH:$HOME/scripts
+export PATH=$PATH:$HOME/Documents/ajubin/utils-js
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
