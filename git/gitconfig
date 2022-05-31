@@ -25,8 +25,11 @@
 	history = log --pretty=format:\"%Cblue%h%Creset - %Cgreen%an%Creset - %Cred%ci%Creset - %s\" --merges
 	# http://www.codeblocq.com/2016/01/Untrack-files-already-added-to-git-repository-based-on-gitignore/
 	re-ignore = !git rm -r --cached . && git add . && git commit -m "reset .gitignore"
+	# Thanks to https://stackoverflow.com/a/70994400/18364469
+	# $1 is the branch we've created from $2
+	rebase-onto = "!f() { git rebase --onto staging $(git merge-base \"$1\" \"$2\") \"$1\"; }; f"
 [user]
-	name = antoine jubin
+	name = ajubin
 	email = antoine.jubin@gmail.com
 
 
@@ -37,3 +40,8 @@
 	autocorrect = 1
 [pull]
 	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

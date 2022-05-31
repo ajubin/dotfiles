@@ -20,7 +20,9 @@ setopt hist_ignore_space
 source ~/dotfiles/zsh/fzf.zsh
 
 c() {
-  code ./
+  # This comes from https://github.com/microsoft/vscode/issues/122951#issuecomment-1125177485
+  # fixing issue to open preview
+  code --no-sandbox ./
 }
 alias grbim='git rebase -i origin/master'
 alias zconf='code ~/dotfiles/zsh/zshrc.zsh'
