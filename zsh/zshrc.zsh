@@ -120,3 +120,14 @@ if [ -f '/Users/ajubin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ajubin/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ajubin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ajubin/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/Users/ajubin/.bun/_bun" ] && source "/Users/ajubin/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/ajubin/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+#SPRKL
+export SPRKL_PREFIX="/Users/ajubin/.sprkl"
+export PATH="$PATH:$SPRKL_PREFIX/bin"
