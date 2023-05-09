@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-
 ZSH_THEME="spaceship"
 
 SPACESHIP_GIT_BRANCH_COLOR="red"
@@ -10,7 +9,7 @@ SPACESHIP_GCLOUD_SHOW="false"
 SPACESHIP_PACKAGE_SHOW="false"
 
 SPACESHIP_TIME_SHOW="true"
-SPACESHIP_TIME_FORMAT="%T"  
+SPACESHIP_TIME_FORMAT="%T"
 SPACESHIP_TIME_COLOR="white"
 
 COMPLETION_WAITING_DOTS="true"

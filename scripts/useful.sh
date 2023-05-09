@@ -85,20 +85,22 @@ biggestFiles() {
 }
 
 cleanupGit() {
+  baseBranch=${1:-master}
+  echo "Will delete based on base branch : $baseBranch"
   # https://devconnected.com/how-to-clean-up-git-branches/#Clean_Up_Local_Git_Branches
   git fetch --quiet --prune
-  git checkout --quiet staging
+  git checkout --quiet $baseBranch
   # Make sure git status and others stay fast
   git prune
   git gc
   # Delete fully merged branches
-  git branch --merged | egrep -v "(^\*|master|staging|dev)" | xargs git branch -d
+  git branch --merged | egrep -v "(^\*|master|staging|dev|$baseBranch)" | xargs git branch -d
   # Delete squash-and-merged branches
   # https://github.com/not-an-aardvark/git-delete-squashed
   git for-each-ref refs/heads/ "--format=%(refname:short)" |
     while read branch; do
-      mergeBase=$(git merge-base staging $branch) &&
-        [[ $(git cherry staging $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] &&
+      mergeBase=$(git merge-base $baseBranch $branch) &&
+        [[ $(git cherry $baseBranch $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] &&
         git branch -D $branch
     done
   # Delete branches that were deleted on origin

@@ -131,3 +131,30 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #SPRKL
 export SPRKL_PREFIX="/Users/ajubin/.sprkl"
 export PATH="$PATH:$SPRKL_PREFIX/bin"
+
+export PATH="$PATH:/Users/ajubin/Library/Python/3.8/bin"
+
+#GO
+export PATH="$PATH:$HOME/go/bin"
+
+# Mysql client, needed for pentesting
+# Copying info from brew info mysql-client
+#
+# ==> Caveats
+# mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
+# because it conflicts with mysql (which contains client libraries).
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+# John the Ripper
+# I build from sourcefiles
+# Below doesn't work, run it directly from run directory
+# export PATH="$PATH:$HOME/Documents/ajubin/hack-the-box/john/run"
+
+# Ok, this is kind of a strange behaviour, a program set NODE_ENV variable but
+# I can't identify which one. Even when starting zsh without sourcing anything or even bash
+# the NODE_ENV variable is set to "production"
+# To identify who called set env, we should run a command like: `sudo dtruss -f -t setenv sh` (eq to strace on unix)
+# But it requires to disable SIP on the mac
+# - Mac in recovery mode: holding cmd+R at startup
+# - Select Terminal from utilities menu
+# - csrutil disable
