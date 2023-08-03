@@ -43,8 +43,17 @@ gcodate() {
 numberOfLines() {
   find $1 -type f -exec wc -l {} + | sort -rn
 }
-todo() {
-  git diff master..$(git branch --show-current) | grep "^+.*TODO"
+
+function todo() {
+  # merci https://chat.openai.com/share/5b66a668-ddd2-48ae-afeb-051de7769200
+  if [ -z "$1" ]; then
+    base_branch="master"
+  else
+    base_branch="$1"
+  fi
+
+  echo "TODO:"
+  git diff --name-only $base_branch..$(git branch --show-current) | xargs grep -nH 'TODO' | awk -F: '{print "- " $1 ":" $2}'
 }
 
 alias pr='open "https://github.com/bamlab/healico-server/pulls"'
@@ -158,3 +167,10 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # - Mac in recovery mode: holding cmd+R at startup
 # - Select Terminal from utilities menu
 # - csrutil disable
+export HOMEBREW_GITHUB_API_TOKEN=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
+
+# Use brew's ruby instead of the one on the system (2.6) that is deprecated
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=$(gem environment gemdir)/bin:$PATH
+fi
