@@ -174,3 +174,9 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=$(gem environment gemdir)/bin:$PATH
 fi
+alias wifi-sncf="sh ~/.wifi-sncf-inoui/wifi-sncf-inoui.sh"
+alias wifi-sncf="sh ~/.wifi-sncf-inoui/wifi-sncf-inoui.sh"
+
+alias kubectl="minikube kubectl --"
+
+source ~/.minikube-completion

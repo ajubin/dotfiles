@@ -6,13 +6,11 @@
 
 set -e
 
-
 # install Homebrew
 # Check an app is installed https://stackoverflow.com/a/677212
-if ! command -v brew &> /dev/null
-then
+if ! command -v brew &>/dev/null; then
     echo "brew could not be found, installing"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew tap Homebrew/bundle
@@ -20,7 +18,8 @@ brew bundle --file=./Homebrew/Brewfile --force || true
 # TODO : link symlink brewfile / install only subsets
 
 # Show hidden files
-defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app
+defaults write com.apple.finder AppleShowAllFiles YES
+killall Finder /System/Library/CoreServices/Finder.app
 # Install ohmyzsh
 # TODO: check if already installed
 # unset ZSH # maybe wrongly setup
@@ -44,16 +43,16 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/pierpo/fzf-yarn ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-yarn
 
-
 # use same preference for iterm2
 # TODO: some stuff imported, but profiles are missing
 
+# Stop installing asdf, install fnm instead
+# asdf plugin add nodejs
+# asdf install nodejs latest:14
+# asdf global nodejs `asdf list nodejs | grep 14`
 
-asdf plugin add nodejs 
-asdf install nodejs latest:14
 # TODO: maybe add .tools_version in dotfiles
 
-asdf global nodejs `asdf list nodejs | grep 14`
 npm install -g yarn
 
 # when running psql, it want to connects to username db by default and it's not created,
@@ -61,3 +60,6 @@ npm install -g yarn
 
 #  Installing firebase
 # curl -sL https://firebase.tools | bash
+
+# Install "script kit"
+# Configure existing scripts

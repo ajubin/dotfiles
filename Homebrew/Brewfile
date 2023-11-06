@@ -37,13 +37,20 @@ brew "jq"
 brew "fzf"
 brew "transcrypt"
 brew "tree"
+brew "webp"
+brew "wget"
 brew "watchman"
+brew "youtube-dl"
 brew "zsh"
+brew "python@3.11"
+brew "htop"
+brew "httpie"
+brew "heroku"
 # brew "gifsicle"
 # brew "gitleaks"
 # brew "hub"
 
-brew "helm"
+# brew "helm"
 
 # Unknown
 brew "pkg-config"
@@ -65,16 +72,16 @@ brew "redis", restart_service: true
 
 
 #  Apps
-cask "clipy"
+# cask "clipy"
 cask "bettertouchtool"
 cask "dbeaver-community"
 cask "postico"
-cask "fastlane"
+# cask "fastlane"
 cask "font-source-code-pro"
-cask "google-chrome"
+# cask "google-chrome"
 cask "iterm2"
 # To open kdbx files
-cask "macpass" 
+# cask "macpass" 
 # cask "mobster" for pair programming
 cask "slack"
 # cask "spectacle"
@@ -89,8 +96,27 @@ cask "docker"
 cask "vlc"
 # cask "tunnelblick"
 cask "pritunl"
-cask "cleanmymac"
+# cask "cleanmymac"
 cask "notion"
+cask "obsidian"
+cask "arc"
+cask "whatsapp"
+cask "stremio"
+cask "insomnia"
+cask "another-redis-desktop-manager"
+cask "figma"
+
+# Quicklook (to open files with spacebar)
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-json"
+cask "quicklookase"
+
+cask "adoptopenjdk11"
+cask "adoptopenjdk8"
 
 brew "exoscale-cli"
 
