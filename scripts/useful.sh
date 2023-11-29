@@ -110,3 +110,34 @@ cleanupGit() {
         git checkout -b <new-branch-name> HEAD@{X} # with X whatever the reflog output indicates
   "
 }
+
+# Create a repo on GitHub and push the local repo to it if no origin
+create_and_push_repo() {
+    # Check if inside a Git repository
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        echo "Inside a Git repository."
+
+        # Get the root directory of the Git repository
+        root_git_dir=$(git rev-parse --show-toplevel)
+        
+        # Check if the repository has a remote origin
+        if git remote get-url origin > /dev/null 2>&1; then
+            echo "Remote origin exists."
+        else
+            echo "Remote origin does not exist."
+
+            # Extract the name of the root Git folder
+            repo_name=$(basename "$root_git_dir")
+            echo "Creating private $repo_name on GitHub..."
+            # Use gh CLI to create a new repository on GitHub
+            gh repo create "$repo_name" --private --source="$root_git_dir" --remote=origin
+
+            # Push the local repository to the remote
+            git push -u origin master
+            echo "Repository pushed to GitHub."
+        fi
+    else
+        echo "Not inside a Git repository."
+    fi
+}
+
