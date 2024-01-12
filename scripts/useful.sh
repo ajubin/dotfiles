@@ -112,32 +112,43 @@ cleanupGit() {
 }
 
 # Create a repo on GitHub and push the local repo to it if no origin
-create_and_push_repo() {
-    # Check if inside a Git repository
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        echo "Inside a Git repository."
+create_and_push_repo_to_github() {
+  baseBranch=${1:-master}
+  # Check if inside a Git repository
+  if git rev-parse --git-dir >/dev/null 2>&1; then
+    echo "Inside a Git repository."
 
-        # Get the root directory of the Git repository
-        root_git_dir=$(git rev-parse --show-toplevel)
-        
-        # Check if the repository has a remote origin
-        if git remote get-url origin > /dev/null 2>&1; then
-            echo "Remote origin exists."
-        else
-            echo "Remote origin does not exist."
+    # Get the root directory of the Git repository
+    root_git_dir=$(git rev-parse --show-toplevel)
 
-            # Extract the name of the root Git folder
-            repo_name=$(basename "$root_git_dir")
-            echo "Creating private $repo_name on GitHub..."
-            # Use gh CLI to create a new repository on GitHub
-            gh repo create "$repo_name" --private --source="$root_git_dir" --remote=origin
-
-            # Push the local repository to the remote
-            git push -u origin master
-            echo "Repository pushed to GitHub."
-        fi
+    # Check if the repository has a remote origin
+    if git remote get-url origin >/dev/null 2>&1; then
+      echo "Remote origin exists."
     else
-        echo "Not inside a Git repository."
+      echo "Remote origin does not exist."
+
+      # Extract the name of the root Git folder
+      repo_name=$(basename "$root_git_dir")
+      echo "Creating private $repo_name on GitHub..."
+      # Use gh CLI to create a new repository on GitHub
+      gh repo create "$repo_name" --private --source="$root_git_dir" --remote=origin
+
+      # Push the local repository to the remote
+      git push -u origin $baseBranch
+      echo "Repository pushed to GitHub."
     fi
+  else
+    echo "Not inside a Git repository."
+  fi
 }
 
+# Interactive brew upgrade thanks to https://github.com/orgs/Homebrew/discussions/3786#discussioncomment-3875187
+brew_upgrade_interactive() {
+  outdated=$(brew outdated)
+  [[ -n "$outdated" ]] && fzf --multi <<<$outdated | xargs brew upgrade
+}
+
+# thanks to https://github.com/Schniz/fnm/issues/620#issuecomment-1847363846
+fnm-reinstall-packages-from() {
+  npm install -g $(fnm exec --using=$1 npm list -g | grep "├──\|└──" | awk '{gsub(/@[0-9.]+/, "", $2); print $2}' | tr '\n' ' ' | sed 's/ $//')
+}
