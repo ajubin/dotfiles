@@ -15,6 +15,8 @@
     ~/.gitignore_global: git/gitignore_global
     # Vim
     ~/.vimrc: vim/vimrc
+    # Neovim
+    ~/.config/nvim: nvim
     # Dig (for dns, https://jvns.ca/blog/2023/05/08/new-talk-learning-dns-in-10-years/)
     ~/.digrc: other/digrc
 
