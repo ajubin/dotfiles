@@ -203,3 +203,9 @@ compdef _gt_yargs_completions gt
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/ajubin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+# pyenv (python version and environment manager)
+eval "$(pyenv init -)"
+
+# Poetry (python depedency manager manager)
+export PATH="/Users/ajubin/.local/bin:$PATH"
